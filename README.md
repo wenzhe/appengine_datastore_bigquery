@@ -31,3 +31,7 @@ The dataset will serve as the namespace for tables materialized from datastore b
  `load_bigquery.py` contains the request handler to be run via `cron.yaml`. It will materialize BigQuery tables using the  most recent datastore backups. It will also delete backups older than a certain age.
 
 Configure the three variables at the top of `bigquery_lib.py` for your project.
+
+## License
+
+Released under the MIT License, see `LICENSE`.
