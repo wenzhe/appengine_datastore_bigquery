@@ -1,9 +1,9 @@
 # appengine_datastore_bigquery
 
-This is a guide on automating importing of datastore data into BigQuery in python app engine projects.
+This is a guide on how to automate the loading of datastore data into BigQuery in python App Engine.
 Steps covered:
 
-1. Backup Google App Engine (GAE) NDB datastore entities to Google Cloud Storage.
+1. Backup Google App Engine NDB datastore entities to Google Cloud Storage.
 2. Refresh BigQuery tables using latest backup files in Cloud Storage.
 3. Delete old backup entities and files.
 
