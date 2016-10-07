@@ -21,7 +21,7 @@ def create_service():
 
 
 def load_backup_into_bigquery(bigquery_service, backup_key, table):
-    """Loads a datastore entity kind backup on cloud storage into BigQuery.
+    """Loads a datastore model backup on cloud storage into a BigQuery table.
 
     Args:
       bigquery_service: BigQuery API service to call to perform the load.
@@ -41,6 +41,7 @@ def load_backup_into_bigquery(bigquery_service, backup_key, table):
                 'tableId': table,
                 'sourceFormat': 'DATASTORE_BACKUP',
                 'sourceUris': [source_uri],
+                # If BigQuery table already exists, it will be overwritten.
                 'writeDisposition': 'WRITE_TRUNCATE',
                 'destinationTable' : {
                     'projectId': PROJECT_ID,

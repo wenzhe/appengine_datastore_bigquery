@@ -1,5 +1,6 @@
-# Example app engine cron for weekly datastore backups and refreshes of BigQuery tables.
+# Example cron for weekly datastore backups and refreshes of BigQuery tables.
 cron:
+# Specify additional '&kind=' parameters for every model to be backed up.
 - description: Datastore Backup
     url: /_ah/datastore_admin/backup.create?kind=Kind1&kind=Kind2&filesystem=gs&gs_bucket_name=backup-bucket-name
     schedule: every friday 1:00
@@ -7,7 +8,7 @@ cron:
     target: ah-builtin-python-bundle
 
 # Allow some time for datastore backup job to finish before running BigQuery load.
-- description: Load backups into BigQuery
+- description: Load backups into BigQuery and delete old backups
     url: /load_bigquery
     schedule: every friday 2:00
     timezone: US/Pacific
