@@ -23,7 +23,7 @@ class AeBackupInformation(ndb.Model):
     @classmethod
     def get_latest_backup(cls):
         """Gets the entity representing the most recent datastore backup."""
-        backups = cls.query().fetch()
+        backups = cls.query().order(complete_time).fetch()
         if backups:
             return backups[-1]
 
